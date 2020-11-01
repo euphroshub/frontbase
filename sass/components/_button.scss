@@ -1,0 +1,107 @@
+.Btn {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 7px 25px; 
+	border: 2px solid transparent;
+	background: $activeColor;
+	@include rem(16);
+	font-weight: $fw-bold;
+	color: $white;
+	text-decoration: none!important;
+	&:empty {
+		padding: 0;
+		height: 2.5rem;
+		width: 2.5rem;
+	}
+
+	&.Btn-light {
+		background: lighten($activeColor, 6%)!important;
+		&:hover {
+			background: lighten($activeColor, 10%)!important;
+		}
+	}
+
+	&.Btn-dark {
+		background: darken($activeColor, 6%)!important;
+		&:hover {
+			background: darken($activeColor, 10%)!important;
+		}
+	}
+
+	&.Btn-bordered {
+		background: none!important;
+		color: $white;
+		border: 2px solid $white;
+		&:hover, &:active, &:focus {
+			background:lighten($activeColor, 4%)!important;
+			color: $white;	
+		}
+    }
+    
+	// Hover
+	&:hover, &:active, &:focus {
+		background:lighten($activeColor, 6%);
+		color: $white;	
+	}
+
+	// ----------
+	// Second
+	&.Btn-second {
+		background: $secondaryColor;
+
+		&.Btn-light {
+			background: lighten($secondaryColor, 6%)!important;
+			&:hover, &:active, &:focus {
+				background: lighten($secondaryColor, 10%)!important;
+			}
+		}
+
+		&.Btn-dark {
+			background: darken($secondaryColor, 6%)!important;
+			&:hover, &:active, &:focus {
+				background: darken($secondaryColor, 10%)!important;
+			}
+		}
+
+		&.Btn-bordered {
+			border: 2px solid $secondaryColor!important;
+			color: $secondaryColor;
+			&:hover, &:active, &:focus {
+				background: $secondaryColor!important;
+				color: $white;
+			}
+		}
+
+		// Hover
+		&:hover, &:active, &:focus {
+			background:lighten($secondaryColor, 6%);
+			color: $white;	
+		}
+	}
+
+	// Button sizes
+	&.Btn-thin {
+		padding: 3px 12px;
+	}
+
+	&.Btn-large {
+		padding: 20px 95px;
+	}
+
+	&.Btn-medium {
+		padding: 15px 90px;
+	}
+
+	// ----------
+	// Round
+	&.Btn-round {
+		border-radius: 5px 5px 5px 5px !important;
+	}
+
+	// Spacing if more than one child in same line
+	// All siblings following the first one will be spaced accordingly
+	// Note : must be placed in a direct parent to work (div, p, span, whatever)
+	&:first-child ~ & { 
+		margin-left:0.5em; 
+	}
+}

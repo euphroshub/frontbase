@@ -1,0 +1,25 @@
+// Importing base folder files
+@import "base/base";
+@import "base/animations";
+@import "base/typo";
+@import "base/utilities";
+
+// Importing abstract folder files
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+// Importing pages files
+@import "pages/home";
+@import "pages/guide";
+
+// Importing Layout files
+@import "layout/grid";
+
+
+// Importing Components
+@import "components/button";
+
+
+// Importing theme file
+@import "theme/theme";

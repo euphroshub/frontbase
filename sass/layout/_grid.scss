@@ -1,0 +1,97 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+.container-fluid {
+	@include make-container();
+}
+
+.container {
+	@include make-container();
+	$offset : $grid-gutter-width / 2;
+
+	@each $breakpoint, $value in $breakpoints {
+		// declare max-width only when larger than : 767
+		@if $value > 767 {
+			@include mediaq('>#{$value}') {
+				max-width: $value - $offset;
+			}
+		}
+	}
+}
+
+@each $breakpoint, $value in $breakpoints {
+	@if $value > 767 {
+		$offset : $grid-gutter-width / 2;
+		// declare padding-X only when larger than : 767
+		@include mediaq('>#{$value}') {
+			.container-left-#{$breakpoint} {
+				padding-left: calc( ((100vw - (#{$value} - #{$offset})) / 2) + (#{$offset} * 2) )!important;
+			}
+
+			.container-right-#{$breakpoint} {
+				padding-right: calc( ((100vw - (#{$value} - #{$offset})) / 2) + (#{$offset} * 2) )!important;
+			}
+		}
+	}
+}
+// Container END
+
+// Row BEGIN
+.row {
+	@include make-row();
+}
+
+.no-gutters {
+	margin-right: 0;
+	margin-left: 0;
+
+	> .col,
+	> [class*="col-"] {
+		padding-right: 0;
+		padding-left: 0;
+	}
+}
+// Row END
+
+// Col BEGIN
+.col {
+	@include make-col-ready();
+	flex-basis: 0;
+	flex-grow: 1;
+	max-width: 100%;
+}
+
+@for $i from 1 through $grid-columns {
+	.col-#{$i} {
+		@include make-col-ready();
+		@include make-col($i, $columns: $grid-columns);
+	}
+}
+
+@each $breakpoint, $value in $breakpoints {
+	.col-#{$breakpoint} {
+		@include make-col-ready();
+	}
+
+	@for $i from 1 through $grid-columns {
+		.col-#{$breakpoint}-#{$i} {
+			@include make-col-ready();
+		}
+	}
+
+	@include mediaq('>#{$value}') {
+		.col-#{$breakpoint} {
+			@include make-col-ready();
+			flex-basis: 0;
+			flex-grow: 1;
+			max-width: 100%;
+		}
+
+		@for $i from 1 through $grid-columns {
+			.col-#{$breakpoint}-#{$i} {
+				@include make-col($i, $columns: $grid-columns);
+			}
+		}
+	}
+}
+// Col END

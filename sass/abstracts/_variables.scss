@@ -1,0 +1,267 @@
+// Screen resolution variables
+//----------------------------------------------------//
+$scr-xxs: 320px;
+$scr-xs: 480px;
+$scr-sm: 768px;
+$scr-md: 991px;
+$scr-lg: 1200px;
+$scr-xlg: 1450px;
+$scr-xxlg: 1650px;
+//----------------------------------------------------//
+
+	$scr-xxs-max: ($scr-xs - 1);
+	$scr-xs-max: ($scr-sm - 1);
+	$scr-sm-max: ($scr-md - 1);
+	$scr-md-max: ($scr-lg - 1);
+	$scr-lg-max: ($scr-xlg - 1);
+	$scr-xlg-max: ($scr-xxlg - 1);
+
+	// min's - max's (vont bientôt être supprimé)
+	$mq-xxs: "(min-width:#{$scr-xxs}) and (max-width:#{$scr-xxs-max})";
+	$mq-xs: "(min-width:#{$scr-xs}) and (max-width:#{$scr-xs-max})";
+	$mq-sm: "(min-width:#{$scr-sm}) and (max-width:#{$scr-sm-max})";
+	$mq-md: "(min-width:#{$scr-md}) and (max-width:#{$scr-md-max})";
+	$mq-lg: "(min-width:#{$scr-lg}) and (max-width:#{$scr-lg-max})";
+	$mq-xlg: "(min-width:#{$scr-xlg})";
+
+	$mq-notdesk: "(max-width:#{$scr-sm-max})";
+	$mq-mob: "(max-width:#{$scr-xs-max})" ;
+	$mq-desk: "(min-width:#{$scr-md})";
+	// ** MEDIA QUERIES   END ** //
+
+
+// Colors variables
+//----------------------------------------------------//
+$black: #000000;
+$white: #ffffff;
+$red: #D72031;
+$blue: #00a0e3;
+$charcoal: #322F31;
+$grey: #DDD8D5;
+
+$grayDarker: lighten($black, 5%);
+$grayDark: lighten($black, 33%);
+$gray: lighten($black, 50%);
+$grayLight: lighten($black, 75%);
+$grayLighter: lighten($black, 95%);
+
+// Set your primary colors here
+$mainColor: $red;
+$primaryColor: $red;
+$activeColor: $red;
+
+// Lighten or darken the main color of the project
+$mainColor-light: lighten($mainColor, 8%);
+$mainColor-dark: darken($mainColor, 8%);
+
+// Set your secondary color here
+$secondaryColor: $charcoal; 
+$secondaryColor-light: lighten($secondaryColor, 8%); 
+$secondaryColor-dark: darken($secondaryColor, 8%); 
+//----------------------------------------------------//
+
+
+// Font variables -- Set your font here
+//----------------------------------------------------//
+$mainF: Arial, Helvetica, sans-serif;
+$mainFont: $mainF;
+
+$fontbase: 16;
+$default-font-size: 1.6rem;
+
+// Font Weights:
+$fw-thin: 100;
+$fw-light: 300; 
+$fw-normal: 400; 
+$fw-medium: 500;
+$fw-bold: 700;
+$fw-ultrabold: 900;
+//----------------------------------------------------//
+
+
+// Transitions
+//----------------------------------------------------//
+$stand-curve: cubic-bezier(0.4, 0.0, 0.2, 1);
+$decel-curve: cubic-bezier(0.0, 0.0, 0.2, 1);
+$accel-curve: cubic-bezier(0.4, 0.0, 1, 1);
+$sharp-curve: cubic-bezier(0.4, 0.0, 0.6, 1);
+$ease-in: cubic-bezier(0.430, 0.045, 0.100, 0.950);
+//----------------------------------------------------//
+
+//----------------------End of the base stack variables------------------------//
+
+// ** ANY CHANGE MADE TO THESE SETTINGS WILL CHANGE *EVERY* HELPERS/MODULES/COMPONENT USING THEM ** //
+
+// -------------------------
+// $ListBreakpoint
+//
+// This list contains the infos related to media queries.
+// Each arrays has 3 differents parts:
+//	1:	The first is the name of the breakpoint. It is printed in the class name when needed.
+//		For example SM: NoMargin-SM
+//	2:	The second one is the value of the breakpoint. For exemple, the breakpoint SM
+//		has a value of 768px.
+//	3:	The last one is the condition of the breakpoint. In the case of SM, it is min-width.
+$ListBreakpoint : (
+	(null, 0),
+	// min
+	(XS, #{$scr-xs}, 'min-width'),
+	(SM, #{$scr-sm}, 'min-width'),
+	(MD, #{$scr-md}, 'min-width'),
+	(LG, #{$scr-lg}, 'min-width'),
+	(XLG, #{$scr-xlg}, 'min-width'),
+	(XXLG, #{$scr-xxlg}, 'min-width'),
+	// max
+	(XXSmax, #{$scr-xxs-max}, 'max-width'),
+	(XSmax, #{$scr-xs-max}, 'max-width'),
+	(SMmax, #{$scr-sm-max}, 'max-width'),
+	(MDmax, #{$scr-md-max}, 'max-width'),
+	(LGmax, #{$scr-lg-max}, 'max-width')
+) !default;
+
+$breakpoints: (
+	XXS: $scr-xxs,
+	XS: $scr-xs,
+	SM: $scr-sm,
+	MD: $scr-md,
+	LG: $scr-lg,
+	XLG: $scr-xlg,
+	XXLG: $scr-xxlg
+);
+
+// -------------------------
+// $ListSize
+//
+// This list is used when using variations of a class
+// For exemple, the helpers Spacing_ uses these variations to increase it's value.
+$ListSize : (
+	'thinner',
+	'thin',
+	'normal',
+	'large',
+	'larger',
+);
+
+// -------------------------
+// Spacing size variables
+//
+// These are the values for the Spacing helper
+
+// Spaced
+$SpacedValue : 20px;
+$SpacedRatio : 30px;
+
+// Margin
+$MarginValue : 10px;
+$MarginRatio : 10px;
+
+// Padding
+$PaddingValue : 10px;
+$PaddingRatio : 10px;
+
+
+// -------------------------
+// $ListColors
+//
+// This list is used to generate colors variation. Include the colors you wants to generate for your project.
+$ListColors : (
+	('black', #{$black}),	
+	('white', #{$white}),
+	('mainColor', #{$mainColor}),
+	('secondaryColor', #{$secondaryColor}),
+	('gray', #{$gray}),
+	('grey', #{$grey}),
+	('charcoal', #{$charcoal}),
+	('grayDark', #{$grayDark}),
+	('grayLight', #{$grayLight}),
+	('grayLighter', #{$grayLighter})
+);
+
+// -------------------------
+// $ListVerticalAlign
+//
+
+// This is pretty self-explanatory.
+$ListVerticalAlign : (
+	top,
+	middle,
+	bottom
+);
+
+// -------------------------
+// $ListTextAlign
+//
+// Unless you discover a new way to align text, you shouldn't have to touch this ever.
+$ListTextAlign : (
+	center,
+	left,
+	right
+	// who uses justify really?
+	// justify
+);
+
+// -------------------------
+// $ListFontWeight
+$ListFontWeight : (
+	('100',thin),
+	('300',light),
+	('400',regular),
+	('500',medium),
+	('700',bold),
+	('900',ultrabold),
+);
+
+// -------------------------
+// $ListDirection
+//
+// This is used for absolute positionned element, margin and padding.
+$ListDirection : (
+	'top',
+	'right',
+	'bottom',
+	'left'
+);
+
+// -------------------------
+// Grid settings
+$grid-columns:		12;
+$grid-gutter-width:	15px;
+
+//
+//
+//
+// ** BELOW ARE THE OPTIONS TO CHOOSE WHICH HELPERS YOU WANT TO TURN ON OR OFF ** //
+//
+//
+//
+
+// -------------------------
+// Spaced
+$enable-Spaced: true !default;
+$enable-Spaced-responsive: false !default;
+
+// -------------------------
+// Margin
+$enable-Margin: true !default;
+$enable-Margin-direction: false !default;
+$enable-Margin-responsive: false !default;
+
+// -------------------------
+// Padding
+$enable-Padding: true !default;
+$enable-Padding-direction: false !default;
+$enable-Padding-responsive: false !default;
+
+// -------------------------
+// TextAlign
+$enable-TextAlign: true !default;
+$enable-TextAlign-responsive: false !default;
+
+// -------------------------
+// Listing
+$enable-ListingInline: true !default;
+$enable-ListingInline-responsive: false !default;
+
+// -------------------------
+// Position
+$enable-Position: false !default;
