@@ -22,6 +22,11 @@
 
     <div id="MainWrap" class="Styleguide_mainWrap">
 
+		
+		<?// need to build simple nav and heading here for the guide. ?>
+
+
+
 		<?php // FONT FAMILY?>
 		<section class="Spaced_normal" id="FontFamilies">
 			<div class="container">

@@ -10,7 +10,7 @@
 	$offset : $grid-gutter-width / 2;
 
 	@each $breakpoint, $value in $breakpoints {
-		// declare max-width only when larger than : 767
+		// Declare max-width only when larger than : 767
 		@if $value > 767 {
 			@include mediaq('>#{$value}') {
 				max-width: $value - $offset;
@@ -22,7 +22,7 @@
 @each $breakpoint, $value in $breakpoints {
 	@if $value > 767 {
 		$offset : $grid-gutter-width / 2;
-		// declare padding-X only when larger than : 767
+		// Declare padding-X only when larger than : 767
 		@include mediaq('>#{$value}') {
 			.container-left-#{$breakpoint} {
 				padding-left: calc( ((100vw - (#{$value} - #{$offset})) / 2) + (#{$offset} * 2) )!important;
