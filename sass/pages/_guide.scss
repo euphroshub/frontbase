@@ -3,6 +3,13 @@
 
 // Styleguide SASS file for various elements.
 
+// Spacer to space elements in the guide.
+
+.spacerDiv {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
 // HR
 hr {
 	border: none;
@@ -329,7 +336,7 @@ table {
 				right: 0;
 				bottom: 0;
 				height: 2px;
-				background: $gray;
+				background: $grayLighter;
 				pointer-events: none;
 			}
 		}

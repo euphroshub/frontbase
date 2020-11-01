@@ -1,36 +1,7 @@
 @import "../abstracts/variables";
 @import "../abstracts/mixins";
 
-
 // Icons
-[data-icon] {
-	&:not([data-icon="SVG"]) {
-		&:before {
-			font-family: 'Material Icons'!important;
-			content: attr(data-icon);
-			speak: none;
-			font-style: normal;
-			font-weight: normal;
-			font-variant: normal;
-			font-feature-settings: 'liga';
-			text-transform: none;
-			line-height: 1;
-			letter-spacing: normal;
-			word-wrap: normal;
-			white-space: nowrap;
-			direction: ltr;
-			-webkit-font-smoothing: antialiased;
-			-moz-osx-font-smoothing: grayscale;
-		}
-	}
-}
-
-[data-icon="SVG"] {
-	position: relative;
-	svg {
-		fill: $mainColor;
-	}
-}
 
 .Icon {
 	position:relative;

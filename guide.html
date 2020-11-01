@@ -22,24 +22,45 @@
 
     <div id="MainWrap" class="Styleguide_mainWrap">
 
-		
-		<?// need to build simple nav and heading here for the guide. ?>
+
+		<nav class="basicNav">
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li class="dropdown">
+					<a class="dropbtn" href="#">News</a>
+					<div class="dropdown-content">
+						<a href="#">Example 1</a>
+						<a href="#">Example 2</a>
+						<a href="#">Example 3</a>
+						<a href="#">Example 4</a>
+					</div>
+				</li>
+				<li><a href="#">Contact</a></li>
+				<li><a href="#">Frontbase - euphros</a></li>
+			</ul>
+		</nav>
+
+		<header class="basicHeader">
 
 
 
-		<?php // FONT FAMILY?>
+		</header>
+
+		<div class="spacerDiv"></div>
+
+		<?// Font Family ?>
 		<section class="Spaced_normal" id="FontFamilies">
 			<div class="container">
 				<div class="row">
 					<div class="col-MD-12">
-						<h2 class="NoMargin">Font families</h2>
+						<h2 class="NoMargin">Fonts</h2>
 						<hr>
 					</div>
 				</div>
 
 				<div class="row">
 					<div class="col-MD-6 Spaced_thin-noTop-SMmax">
-						<p><strong>Roboto</strong></p>
+						<p><strong>Font example</strong></p>
 						<code class="BreakWord">@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic);</code> <br>
 						<br>
 						<ul>
@@ -52,7 +73,9 @@
 			</div>
 		</section>
 
-		<?php // HEADING?>
+		<div class="spacerDiv"></div>
+
+		<?// HEADING ?>
 		<section class="Spaced_normal" id="Headings">
 			<div class="container">
 				<div class="row">
@@ -80,7 +103,9 @@
 			</div>
 		</section>
 
-		<?php// PARAGRAPHE, UL, OL, BLOCKQUOTE?>
+		<div class="spacerDiv"></div>
+
+		<? // PARAGRAPHE, UL, OL, BLOCKQUOTE ?>
 		<section class="Spaced_normal" id="Texts">
 			<div class="container">
 				<div class="row">
@@ -148,8 +173,9 @@
 			</div>
 		</section>
 
+		<div class="spacerDiv"></div>
 
-		<?php // Buttons?>
+		<? // Buttons ?>
 		<section class="Spaced_normal" id="Buttons">
 			<div class="container">
 				<div class="row">
@@ -164,6 +190,8 @@
 						<h3>Colors</h3>
 					</div>
 				</div>
+
+				<div class="spacerDiv"></div>
 
 				<div class="row Spaced_thin-noTop">
 					<div class="col-MD-6">
@@ -180,13 +208,13 @@
 						<a href="#" class="Btn Btn-second Btn-dark">Btn-second Btn-dark</a>
 					</div>
 				</div>
-
+				<div class="spacerDiv"></div>
 				<div class="row">
 					<div class="col-MD-12">
 						<h3>Sizes</h3>
 					</div>
 				</div>
-
+				<div class="spacerDiv"></div>
 				<div class="row Spaced_thin-noTop">
 					<div class="col-MD-6">
 						<h4><small>Thin</small></h4>
@@ -200,13 +228,13 @@
 						<a href="#" class="Btn Btn-second Btn-large">Btn-large</a>
 					</div>
 				</div>
-
+				<div class="spacerDiv"></div>
 				<div class="row">
 					<div class="col-MD-12">
 						<h3>Alternate states</h3>
 					</div>
 				</div>
-
+				<div class="spacerDiv"></div>
 				<div class="row Spaced_thin-noTop">
 					<div class="col-MD-6">
 						<h4><small>Gray</small></h4>
@@ -222,79 +250,12 @@
 						<a href="#" class="Btn Btn-grayDark Btn-bordered">Btn-bordered</a>
 					</div>
 				</div>
-
-				<div class="row">
-					<div class="col-MD-12">
-						<h3>With icons</h3>
-					</div>
-				</div>
-
-				<div class="row Spaced_thin-noTop">
-					<div class="col-MD-12">
-						<button data-icon="build" class="Btn Icon-center"></button>
-
-						<button class="Btn Btn-second">
-							<span data-icon="build" class="Icon-left">
-								Left
-							</span>
-						</button>
-
-						<button class="Btn Btn-grayDark Icon-right">
-							<span data-icon="hd" class="Icon-right">
-								Right
-							</span>
-						</button>
-
-						<button class="Btn Btn-second Btn-bordered">
-							<span data-icon="supervisor_account" class="Icon-left">Texte et icone</span>
-						</button> 
-
-						<button data-icon="hd" class="Btn Icon-center Btn-round"><?php // :empty ?></button>
-						<button data-icon="volume_up" class="Btn Btn-second Icon-center Btn-round"><?php // :empty ?></button>
-						<button data-icon="face" class="Btn Btn-bordered Icon-center Btn-round"><?php // :empty ?></button>
-					</div>
-				</div>
-
-				<div class="row Spaced_thin-noBottom">
-					<div class="col-MD-12">
-						<h3>With SVG</h3>
-					</div>
-				</div>
-
-				<div class="row Spaced_thin-noTop">
-					<div class="col-MD-12">
-						<a href="#" class="Btn">
-							<span data-icon="SVG" class="Icon-left">
-								<?= file_get_contents("../assets/img/socials/facebook.svg"); ?> 
-								Facebook
-							</span>
-						</a>
-					</div>
-				</div>
-
 			</div>
 		</section>
 
-		<?php
-			// ICONS
-		?>
-		<section class="Spaced_normal" id="Icons">
-			<div class="container">
-				<div class="row">
-					<div class="col-MD-12">
-						<h2 class="NoMargin">Icons</h2>
-						<hr>
+		<div class="spacerDiv"></div>
 
-						<a href="https://material.io/icons/" target="_blank">https://material.io/icons/</a>
-					</div>
-				</div>
-			</div>
-		</section>
-
-
-		<?php
-			// TABLE
-		?>
+		<? // TABLE ?>
 		<section class="Spaced_normal" id="Tables">
 			<div class="container">
 				<div class="row">
@@ -358,7 +319,7 @@
 			</div>
 		</section>
 
-		<?php// FORM?>
+		<? // FORM?>
 		<section class="Spaced_normal" id="Forms">
 			<div class="container">
 				<div class="row">
@@ -368,7 +329,7 @@
 					</div>
 				</div>
 
-				<?php // Inputs - Without icons ?>
+				<? // Inputs - Without icons ?>
 				<div class="row">
 					<div class="col-SM-6">
 						<div class="FormElement FormElement-boxed Icon-right" data-icon="call">
@@ -384,7 +345,7 @@
 					</div>
 				</div>
 
-				<?php // Inputs - Iconed ?>
+				<? // Inputs - Iconed ?>
 				<div class="row">
 					<div class="col-SM-6"> 
 						<div class="FormElement FormElement-bordered">
@@ -402,7 +363,7 @@
 					</div>
 				</div>
 
-				<?php // Inputs - Labeled ?>
+				<? // Inputs - Labeled ?>
 				<div class="row">
 					<div class="col-SM-6"> 
 						<label for="">Indiquez votre prénom:</label>
@@ -420,7 +381,7 @@
 					</div>
 				</div>
 
-				<?php // Textarea ?>
+				<? // Textarea ?>
 				<div class="row">
 					<div class="col-SM-6">
 						<label for="">Textarea boxed</label>
@@ -437,7 +398,7 @@
 					</div>
 				</div>
 
-				<?php // select ?>
+				<? // select ?>
 				<div class="row">
 					<div class="col-MD-6">
 						<label for="">select</label>
@@ -451,7 +412,7 @@
 					</div>
 				</div>
 
-				<?php // Checkboxes and radio ?>
+				<? // Checkboxes and radio ?>
 				<div class="row">
 
 					<div class="col-MD-6">
@@ -493,7 +454,7 @@
 					</div>
 				</div>
 
-				<?php // WITH ERRORS ?>
+				<? // WITH ERRORS ?>
 				<div class="row Spaced_thin-noBottom">
 					<div class="col-MD-12">
 						<h3>With errors</h3>
@@ -559,7 +520,7 @@
 					</div>
 				</div>
 
-				<?php // Submit ?>
+				<? // Submit ?>
 				<div class="row Spaced_thin-noBottom">
 					<div class="col-MD-12">
 						<h3>Submit</h3>
@@ -579,21 +540,20 @@
 							<span>Sending...</span>
 						</div>
 					</div>
-
-
+				</div> 
 			</div>
 		</section>
 
 
-		<?php // Accordions?>
-		<section class="Spaced_normal" id="Accordions">
+		<? // Accordions?>
+<!-- 		<section class="Spaced_normal" id="Accordions">
 			<div class="container">
 				<div class="row">
 					<div class="col-MD-12">
 						<h2 class="NoMargin-bottom">Accordions / collapsible block</h2>
 						<small>add class Accordions-collapse to have collapsable block</small>
 						<div class="Margin-bottom-large"></div>
-						<!-- <hr> -->
+						
 					</div>
 				</div>
 				<div class="row">
@@ -645,7 +605,7 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</section> -->
 
 	</div>    
 </body>
