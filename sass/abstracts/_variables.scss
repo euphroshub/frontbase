@@ -1,5 +1,4 @@
 // Screen resolution variables
-//----------------------------------------------------//
 $scr-xxs: 320px;
 $scr-xs: 480px;
 $scr-sm: 768px;
@@ -7,31 +6,28 @@ $scr-md: 991px;
 $scr-lg: 1200px;
 $scr-xlg: 1450px;
 $scr-xxlg: 1650px;
-//----------------------------------------------------//
 
-	$scr-xxs-max: ($scr-xs - 1);
-	$scr-xs-max: ($scr-sm - 1);
-	$scr-sm-max: ($scr-md - 1);
-	$scr-md-max: ($scr-lg - 1);
-	$scr-lg-max: ($scr-xlg - 1);
-	$scr-xlg-max: ($scr-xxlg - 1);
+// Media Queries
+$scr-xxs-max: ($scr-xs - 1);
+$scr-xs-max: ($scr-sm - 1);
+$scr-sm-max: ($scr-md - 1);
+$scr-md-max: ($scr-lg - 1);
+$scr-lg-max: ($scr-xlg - 1);
+$scr-xlg-max: ($scr-xxlg - 1);
 
-	// min's - max's (vont bientôt être supprimé)
-	$mq-xxs: "(min-width:#{$scr-xxs}) and (max-width:#{$scr-xxs-max})";
-	$mq-xs: "(min-width:#{$scr-xs}) and (max-width:#{$scr-xs-max})";
-	$mq-sm: "(min-width:#{$scr-sm}) and (max-width:#{$scr-sm-max})";
-	$mq-md: "(min-width:#{$scr-md}) and (max-width:#{$scr-md-max})";
-	$mq-lg: "(min-width:#{$scr-lg}) and (max-width:#{$scr-lg-max})";
-	$mq-xlg: "(min-width:#{$scr-xlg})";
+$mq-xxs: "(min-width:#{$scr-xxs}) and (max-width:#{$scr-xxs-max})";
+$mq-xs: "(min-width:#{$scr-xs}) and (max-width:#{$scr-xs-max})";
+$mq-sm: "(min-width:#{$scr-sm}) and (max-width:#{$scr-sm-max})";
+$mq-md: "(min-width:#{$scr-md}) and (max-width:#{$scr-md-max})";
+$mq-lg: "(min-width:#{$scr-lg}) and (max-width:#{$scr-lg-max})";
+$mq-xlg: "(min-width:#{$scr-xlg})";
 
-	$mq-notdesk: "(max-width:#{$scr-sm-max})";
-	$mq-mob: "(max-width:#{$scr-xs-max})" ;
-	$mq-desk: "(min-width:#{$scr-md})";
-	// ** MEDIA QUERIES   END ** //
-
+$mq-notdesk: "(max-width:#{$scr-sm-max})";
+$mq-mob: "(max-width:#{$scr-xs-max})" ;
+$mq-desk: "(min-width:#{$scr-md})";
+// End Media
 
 // Colors variables
-//----------------------------------------------------//
 $black: #000000;
 $white: #ffffff;
 $red: #D72031;
@@ -57,12 +53,10 @@ $mainColor-dark: darken($mainColor, 8%);
 // Set your secondary color here
 $secondaryColor: $charcoal; 
 $secondaryColor-light: lighten($secondaryColor, 8%); 
-$secondaryColor-dark: darken($secondaryColor, 8%); 
-//----------------------------------------------------//
+
 
 
 // Font variables -- Set your font here
-//----------------------------------------------------//
 $mainF: Arial, Helvetica, sans-serif;
 $mainFont: $mainF;
 
@@ -76,23 +70,21 @@ $fw-normal: 400;
 $fw-medium: 500;
 $fw-bold: 700;
 $fw-ultrabold: 900;
-//----------------------------------------------------//
 
 
 // Transitions
-//----------------------------------------------------//
 $stand-curve: cubic-bezier(0.4, 0.0, 0.2, 1);
 $decel-curve: cubic-bezier(0.0, 0.0, 0.2, 1);
 $accel-curve: cubic-bezier(0.4, 0.0, 1, 1);
 $sharp-curve: cubic-bezier(0.4, 0.0, 0.6, 1);
 $ease-in: cubic-bezier(0.430, 0.045, 0.100, 0.950);
-//----------------------------------------------------//
 
-//----------------------End of the base stack variables------------------------//
 
-// ** ANY CHANGE MADE TO THESE SETTINGS WILL CHANGE *EVERY* HELPERS/MODULES/COMPONENT USING THEM ** //
+// Alerts
+$has-success: #dff0d8;
+$has-error: #f2dede;
+$has-warning: #ffeeba;
 
-// -------------------------
 // $ListBreakpoint
 //
 // This list contains the infos related to media queries.
@@ -129,7 +121,6 @@ $breakpoints: (
 	XXLG: $scr-xxlg
 );
 
-// -------------------------
 // $ListSize
 //
 // This list is used when using variations of a class
@@ -142,9 +133,7 @@ $ListSize : (
 	'larger',
 );
 
-// -------------------------
 // Spacing size variables
-//
 // These are the values for the Spacing helper
 
 // Spaced
@@ -159,10 +148,7 @@ $MarginRatio : 10px;
 $PaddingValue : 10px;
 $PaddingRatio : 10px;
 
-
-// -------------------------
 // $ListColors
-//
 // This list is used to generate colors variation. Include the colors you wants to generate for your project.
 $ListColors : (
 	('black', #{$black}),	
@@ -177,10 +163,7 @@ $ListColors : (
 	('grayLighter', #{$grayLighter})
 );
 
-// -------------------------
 // $ListVerticalAlign
-//
-
 // This is pretty self-explanatory.
 $ListVerticalAlign : (
 	top,
@@ -188,9 +171,7 @@ $ListVerticalAlign : (
 	bottom
 );
 
-// -------------------------
 // $ListTextAlign
-//
 // Unless you discover a new way to align text, you shouldn't have to touch this ever.
 $ListTextAlign : (
 	center,
@@ -200,7 +181,6 @@ $ListTextAlign : (
 	// justify
 );
 
-// -------------------------
 // $ListFontWeight
 $ListFontWeight : (
 	('100',thin),
@@ -211,9 +191,7 @@ $ListFontWeight : (
 	('900',ultrabold),
 );
 
-// -------------------------
 // $ListDirection
-//
 // This is used for absolute positionned element, margin and padding.
 $ListDirection : (
 	'top',
@@ -222,46 +200,33 @@ $ListDirection : (
 	'left'
 );
 
-// -------------------------
 // Grid settings
 $grid-columns:		12;
 $grid-gutter-width:	15px;
 
-//
-//
-//
-// ** BELOW ARE THE OPTIONS TO CHOOSE WHICH HELPERS YOU WANT TO TURN ON OR OFF ** //
-//
-//
-//
-
-// -------------------------
 // Spaced
 $enable-Spaced: true !default;
 $enable-Spaced-responsive: false !default;
 
-// -------------------------
 // Margin
 $enable-Margin: true !default;
 $enable-Margin-direction: false !default;
 $enable-Margin-responsive: false !default;
 
-// -------------------------
 // Padding
 $enable-Padding: true !default;
 $enable-Padding-direction: false !default;
 $enable-Padding-responsive: false !default;
 
-// -------------------------
 // TextAlign
 $enable-TextAlign: true !default;
 $enable-TextAlign-responsive: false !default;
 
-// -------------------------
 // Listing
 $enable-ListingInline: true !default;
 $enable-ListingInline-responsive: false !default;
 
-// -------------------------
 // Position
 $enable-Position: false !default;
+
+//----------------------End of the base stack variables------------------------//

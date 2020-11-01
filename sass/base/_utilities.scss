@@ -1,8 +1,8 @@
 @import "../abstracts/variables";
 @import "../abstracts/mixins";
 
-// Icons
 
+// Icons
 [data-icon] {
 	&:not([data-icon="SVG"]) {
 		&:before {
