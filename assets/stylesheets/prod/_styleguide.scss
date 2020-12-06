@@ -1,0 +1,833 @@
+/*
+* pour un projet avec vue-nuxt-base, changer les imports pour:
+*
+* @import '~/assets/stylesheets/prod/_vars.scss';
+* @import '~/assets/stylesheets/prod/_config.scss';
+* @import '~/assets/stylesheets/lib/mediaq/_mediaq.scss';
+* @import '~/assets/stylesheets/lib/mixin/mixin.scss';
+*
+*/
+
+@import 'vars';
+@import 'config';
+@import '../../lib/mediaq/mediaq.scss';
+@import '../../lib/mixin/mixin.scss';
+
+html {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-size: #{$fontbase}px;
+	font-family: $mainF;
+	color: $grayDark;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-ms-overflow-style: scrollbar;
+	-webkit-tap-highlight-color: rgba($black, 0);
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-size: #{$fontbase}px;
+	font-family: $mainF;
+	color: $grayDarker;
+	background-color: $white;
+}
+
+// ----------------------------------------
+// ----------------------------------------
+// STYLEGUIDE BEGIN
+// HEADING
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6{
+	font-weight:$fw-bold;
+	color: $mainColor;   
+}
+
+h1, .h1{   
+	font-size: 39px;
+	line-height: 40px;
+
+	@include mediaq('>MD') {
+		@include rem(48);
+		line-height: 56px;
+	}
+
+	// a voir pour mettre en LG
+	@include mediaq('>XLG') {
+		@include rem(78);
+		line-height: 97px;
+	}
+
+	@include mediaq('>XXLG') {
+		@include rem(100);
+		line-height: 100px;
+	}
+}
+
+h2, .h2{
+	font-size: calc(24px + 2vw);
+	line-height: calc(30px + 2vw);
+
+	@include mediaq('>SM') {
+		@include rem(24);
+		line-height: 30px;
+	}
+
+	@include mediaq('>MD') {
+		@include rem(34);
+		line-height: 40px;
+	}
+
+	@include mediaq('>XXLG') {
+		@include rem(48);
+		line-height: 56px;
+	}
+}
+
+h3, .h3{
+	font-size: calc(18.5px + 2vw);
+	line-height: calc(23.5px + 2vw);
+
+	@include mediaq('>MD') {
+		@include rem(37);
+		line-height: 56px;
+	}
+}
+
+h4, .h4{
+	font-size: calc(15px + 2vw);
+	line-height: calc(26px + 2vw);
+
+	@include mediaq('>MD') {
+		@include rem(22);
+		line-height: 32px;
+	}
+}
+
+h5, .h5{
+	font-size: calc(12px + 2vw);
+	line-height: calc(22px + 2vw);
+
+}
+
+h6, .h6{
+	font-size: calc(14px + 2vw);
+	line-height: calc(24px + 2vw);
+
+	@include mediaq('>MD') {
+		@include rem(18);
+		line-height: 26px;
+	}
+}
+
+// Editable - Wrap it around your wysiwyg output (MUST be it’s direct parent)
+.Editable{
+	> * {
+		&:first-child {
+			margin-top: 0!important;
+		}
+		&:last-child {
+			margin-bottom: 0!important;
+		}
+	}
+
+	h1, h2, h3, h4, h5, h6,
+	.h1, .h2, .h3, .h4, .h5, h6 {
+		margin-top: 1em;
+		margin-bottom: 0.5em;
+	
+	}
+
+	h5 {
+		color: $white;
+		font-size: 18px;
+		line-height: 20px;
+		letter-spacing: 0.5px;
+
+		@include mediaq('>MD') {
+			font-size: 24px;
+			line-height: 35px;
+			letter-spacing: 0.6px;
+		}
+	}
+
+	a {
+		color: $white;
+		font-size: 12px;
+		line-height: 18px;
+		&:hover, &:active, &:focus {
+			color: $white;
+		}
+
+		@include mediaq('>LG') {
+			font-size: 13px;
+			line-height: 20px;
+		}
+
+	}
+
+	p {
+		font-size: 11px;
+		font-family: $mainF;
+		line-height: 20px;
+		color: $secondaryColor;
+
+		@include mediaq('>LG') {
+			font-size: 15px;
+			line-height: 29px;
+		}
+
+		@include mediaq('>XLG') {
+			font-size: 19px;
+			line-height: 39px;
+		}
+	}
+}
+
+// ----------------------------------------
+// Paragraphe
+p, blockquote{
+	font-size: 10px;
+	line-height: 18px;
+	margin-bottom: 1.3em;
+	
+}
+
+// ----------------------------------------
+// Links
+a {
+	text-decoration: none; 
+	font-weight: $fw-medium; 
+	color: $activeColor; 
+	&:hover, &:active, &:focus{
+		color: $secondaryColor;
+		text-decoration: none;
+	}
+}
+
+// ----------------------------------------
+// Unordered (ul) and ordered (ol) lists
+ul, ol {
+	&[class] {
+		list-style: none;
+		padding: 0;
+	}
+
+	// Style if no class is applied 
+	// (Usefull for styling ul and ol in a wysiwyg)
+	&:not([class]) {
+		padding-left: 1.5rem;
+	}
+
+	&.bordered {
+		li:not(:last-child) {
+			border-bottom: 1px solid lighten($black, 80%);
+		}
+	}
+
+	li { 
+		padding-bottom: 0.4em;
+		margin-bottom: 0.4em;
+	}
+}
+
+// ----------------------------------------
+// Blockquote
+blockquote {
+	border: none;
+	padding: 0;
+	padding-left: 1.2em;
+	position: relative;
+	margin: 0;
+	&:before{
+		position: absolute;
+		content: '';
+		top: 0.35em;
+		height: calc(100% - 0.65em);
+		left: 0;
+		background: $grayDark;
+		width: 0.2em; 
+	} 
+}
+
+// ----------------------------------------
+// Btn
+.Btn {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 7px 25px; 
+	border: 2px solid transparent;
+	background: $activeColor;
+	@include rem(16);
+	font-weight: $fw-bold;
+	color: $white;
+	text-decoration: none!important;
+	&:empty {
+		padding: 0;
+		height: 2.5rem;
+		width: 2.5rem;
+	}
+
+	&.Btn-light {
+		background: lighten($activeColor, 6%)!important;
+		&:hover {
+			background: lighten($activeColor, 10%)!important;
+		}
+	}
+
+	&.Btn-dark {
+		background: darken($activeColor, 6%)!important;
+		&:hover {
+			background: darken($activeColor, 10%)!important;
+		}
+	}
+
+	&.Btn-bordered {
+		background: none!important;
+		color: $white;
+		border: 2px solid $white;
+		&:hover, &:active, &:focus {
+			background:lighten($activeColor, 4%)!important;
+			color: $white;	
+		}
+	}
+	// hover
+	&:hover, &:active, &:focus {
+		background:lighten($activeColor, 6%);
+		color: $white;	
+	}
+
+	// ----------
+	// Second
+	&.Btn-second {
+		background: $secondaryColor;
+
+		&.Btn-light {
+			background: lighten($secondaryColor, 6%)!important;
+			&:hover, &:active, &:focus {
+				background: lighten($secondaryColor, 10%)!important;
+			}
+		}
+
+		&.Btn-dark {
+			background: darken($secondaryColor, 6%)!important;
+			&:hover, &:active, &:focus {
+				background: darken($secondaryColor, 10%)!important;
+			}
+		}
+
+		&.Btn-bordered {
+			border: 2px solid $secondaryColor!important;
+			color: $secondaryColor;
+			&:hover, &:active, &:focus {
+				background: $secondaryColor!important;
+				color: $white;
+			}
+		}
+
+		// hover
+		&:hover, &:active, &:focus {
+			background:lighten($secondaryColor, 6%);
+			color: $white;	
+		}
+	}
+
+	// ----------
+	// Button sizes
+	&.Btn-thin {
+		padding: 3px 12px;
+	}
+
+	&.Btn-large {
+		padding: 20px 95px;
+	}
+
+	&.Btn-medium {
+		padding: 15px 90px;
+	}
+
+	// ----------
+	// Round
+	&.Btn-round {
+		border-radius: 5px 5px 5px 5px !important;
+	}
+
+	// Spacing if more than one child in same line
+	// All siblings following the first one will be spaced accordingly
+	// Note : must be placed in a direct parent to work (div, p, span, whatever)
+	&:first-child ~ & { 
+		margin-left:0.5em; 
+	}
+}
+
+// ----------------------------------------
+// HR
+hr {
+	border: none;
+	height: 1px;
+	background: lighten($black, 80%);
+	margin: 2rem 0;
+	&.-medium {
+		margin: 3rem 0;
+	}
+	&.-large {
+		margin: 4rem 0;
+	}
+	&.-thin {
+		margin: 1rem 0;
+		background: lighten($black, 92%);
+	}
+} 
+		 
+/* // ----------------------------------------
+// ALERT MESSAGES
+.Alert {
+	margin-bottom: 20px;
+	padding: 15px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	text-align: center;
+
+	// has-success
+	&.has-success {
+		background: $has-success;
+		color: darken($has-success, 55%);
+	}
+
+	// has-warning
+	&.has-warning {
+		background: $has-warning;
+		color: darken($has-warning, 55%);
+	}
+
+	// has-error
+	&.has-error {
+		background: $has-error;
+		color: darken($has-error, 55%);
+	}
+}
+
+.has-error, .has-error + label {  
+	color: darken($has-error, 35%); 
+}
+
+.has-warning, .has-warning + label {  
+	color: darken($has-warning, 40%); 
+}
+
+.has-success, .has-success + label{
+	color: darken($has-success, 35%); 
+} */
+ 
+		 
+// ----------------------------------------
+// FORMS
+label, .Label {
+	display: block;
+	margin-bottom: .25rem;
+	font-family: $mainF;
+	font-weight: $fw-bold;
+	color: $mainColor-dark;
+}
+
+.FormElement {
+	position: relative;
+	margin-bottom: 25px;
+	@include Placeholder(#{$fontbase}px, #{$fontbase}px, $mainColor);
+
+	// Boxed
+	&.FormElement-boxed{
+		background: $grayLighter;
+	}
+
+	// Bordered
+	&.FormElement-bordered{
+		outline: 1px solid $grayLight!important; 
+	}
+
+	// Radio and checkbox
+	&.FormElement_radio, 
+	&.FormElement_checkbox{
+		display: inline-block;
+
+		&.FormElement-boxed {
+			padding: 0.8em 0.8em 0.7em;
+		}
+
+		input{
+			display: none!important;
+		}
+
+		label{
+			position: relative;
+			margin-bottom: 0;
+			padding-left: 1.8em;
+			&:before{
+			    content: '';
+			    position: absolute;
+			    top: 0.08em;
+			    left: 0;
+			    width: 1.1em;
+			    height: 1.1em; 
+			    background: $white;
+			    border: 1px solid lighten(gray, 25%);
+			    border-radius: 2px;
+			} 
+		}
+
+		&[class*="radio"]{
+			label{
+				&:before{
+					border-radius: 40px;
+				}
+			}
+		}
+
+		// Checked state 
+		:checked + label{ 
+			&:before{
+				background: $activeColor;
+				border-color: $activeColor;
+			}
+		}
+		
+		// Spacing if more than one child in same line
+		// All siblings following the first one will be spaced accordingly
+		// Note : must be placed in a direct parent to work (div, p, span, whatever)
+		&:first-child ~ & {  
+			margin-left: 0.8em; 
+		}
+	}
+
+	// Inputs
+	input:not([type="radio"]),
+	input:not([type="checkbox"]){ 
+		display: block;
+		color: $mainColor;
+		font-weight: $fw-bold;
+		line-height: 32px;
+		font-size: 18px;
+		font-family: $mainF;
+		border-radius: 4px;
+		width: 100%;
+		padding: 0.8rem;
+		height: 50px;
+		background: none;
+		border: 1px solid $grey; 
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		appearance: none;
+	}
+
+	// File upload
+	&.FormElement_upload {
+		width: 100%;
+
+		input {
+			position: absolute;
+			height: .1px;
+			width: .1px;
+			overflow: hidden;
+			opacity: .01;
+			z-index: -99999;
+		}
+
+		label {
+			width: 100%;
+			margin: 0!important;
+			padding: 0.8rem;
+			background: none;
+			border: none;
+		}
+	}
+
+	// Submit
+	&.FormElement_submit {
+		[type="submit"] {
+			// when disabled (two class to keep backward compatibility with older Core)
+			&.disabled, &.is-disabled {
+				pointer-events: none;
+				opacity: .45;
+			}	
+		}
+
+		span {
+			position: absolute;
+			width: 0;
+			height: 0;
+			opacity: 0;
+			visibility: hidden;
+			z-index: -9999;
+		}
+	}
+
+	// Select
+	&.FormElement_select {
+		select {
+			font-size: 12px;
+			font-family: $mainF;
+			font-weight: $fw-bold;
+			background: transparent;
+			width: 100%;
+			height: 47px;
+			padding: 0 1em;
+			border:0;
+			border-radius: 0;
+			-moz-appearance: none;
+			-webkit-appearance: none;
+			appearance: none;
+			&::-ms-expand {
+				display: none;
+			}
+		}
+
+		&[class*="Icon"] {
+			&:before{
+				pointer-events: none;
+			}
+		}
+	}
+
+	// Textarea
+	textarea {
+		font-weight: $fw-bold;
+		color: $mainColor;
+		line-height: 32px;
+		font-size: 18px;
+		font-family: $mainF;
+		background: none;
+		width: 100%;
+		max-width: 100%;
+		height: 252px;
+		max-height: auto;
+		min-height: 100px;
+		padding: 0.8rem;
+		border: solid 1px $grey;
+	}
+
+	// HR visual reset
+	hr {
+		margin: 0;
+		width: 100%;
+		background: lighten($black, 85%)!important;
+	}
+
+	// Colored line at input focus
+	input:focus ~ .line{
+		width: 100%;
+	}
+
+	.line { 
+		display: inline-block;
+		top: calc(100% - 1px);
+		z-index: 1000;
+		left: 0;
+		position: absolute;
+		width: 0%;
+		height: 1px;
+		background: $activeColor;
+		transition: all $ease-in .3s;
+	}
+
+	// when has an alert
+	&.has-error, &.has-success, &.has-warning {
+		margin-bottom: 10px;
+
+		+ label {
+			text-align: center;
+			margin-bottom: 25px;
+		}
+	}
+}
+
+// ----------------------------------------
+// Table
+table {
+	width: 100%;
+	font-weight: $fw-medium;
+	margin-bottom: 30px;
+
+	th {
+		@include rem(11);
+		text-transform: uppercase;
+	}
+
+	td {
+		@include rem(13);
+	}
+
+	th, td {
+		padding: 10px;
+		border: 1px solid lighten($black, 80%); 
+		&:empty {
+			background: lighten($black, 95%);
+		}
+	}
+}
+
+// ----------------------------------------
+// Selection highlight's color
+::-moz-selection {
+	background-color: $mainColor;
+	color: $white;
+}
+
+::selection {
+	background-color: $mainColor;
+	color: $white;
+}
+
+// ----------------------------------------
+// Accordions
+.Accordions{
+	margin-bottom: 2em;
+
+	&_row {
+		position: relative;
+		&:not(:last-child){
+			&:before {
+				content: '';
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				height: 2px;
+				background: $gray;
+				pointer-events: none;
+			}
+		}
+
+		&_header {
+			padding-top: 1.3em;
+			padding-bottom: 1.3em;
+
+			.-title {
+				margin: 0;
+				transition: all $ease-in .45s;
+				&:before {
+					transition: all $ease-in .45s;
+				}
+			}
+				
+		}
+		
+		&_content {
+			height: 0;
+			overflow: hidden;
+			transition: all $ease-in .45s;
+			pointer-events: none;
+
+			&_inner {
+				width: 100%;
+				padding: 0 0 15px 0;
+				transition: all $ease-in .45s .15s;
+
+				.Editable {
+					p:last-child{
+						margin: 0;
+					}
+				}
+			}
+		} 
+
+		// ** is-active ** //
+		$parent : &;
+		&.is-active {
+			#{$parent}_header {
+				.-title {
+					color: $activeColor;
+					&:before{
+						color: $activeColor;
+					}
+				}
+			}
+
+			#{$parent}_content {
+				pointer-events: all;
+			}
+		}
+	}
+}
+
+// ----------------------------------------
+// ----------------------------------------
+// BrandColor BEGIN
+.BrandColor {
+	.BrandColor_block {
+		// shared style
+		& [class*="BrandColor_item"] {
+			padding: 15px;
+		}
+
+		// main
+		&.BrandColor_block-mainColor {
+			background: $mainColor;
+			[class*="BrandColor_item"] {
+				&:after {
+					color: $white;
+					display: block;
+					$tempColor: $mainColor;;
+					content: '#{$tempColor}';
+					font-size: 75%;
+				}
+				// light
+				&[class*="-light"] {
+					background: $mainColor-light;
+					&:after {
+						$tempColor: $mainColor-light;
+						content: '#{$tempColor}';
+					}
+				}
+				// dark
+				&[class*="-dark"] {
+					background: $mainColor-dark;
+					&:after {
+						$tempColor: $mainColor-dark;
+						content: '#{$tempColor}';
+					}
+				}
+			}
+		}
+
+		// second
+		&.BrandColor_block-secondColor {
+			background: $secondaryColor;
+			[class*="BrandColor_item"] {
+				&:after {
+					$tempColor: $secondaryColor;
+					content: '#{$tempColor}';
+					color: $white;
+					display: block;
+					font-size: 75%;
+				}
+				// light
+				&[class*="-light"] {
+					background: $secondaryColor-light;
+					&:after {
+						$tempColor: $secondaryColor-light;
+						content: '#{$tempColor}';
+					}
+				}
+				// dark
+				&[class*="-dark"] {
+					background: $secondaryColor-dark;
+					&:after {
+						$tempColor: $secondaryColor-dark;
+						content: '#{$tempColor}';
+					}
+				}
+			}
+		}
+	}
+}
+// BrandColor END
+// ----------------------------------------
+// ----------------------------------------

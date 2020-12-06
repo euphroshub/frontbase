@@ -1,0 +1,186 @@
+// ----------------------------------------
+// Helper class
+
+// ----------
+// Spacing
+@mixin Margin($value) {
+	margin: $value
+}
+
+@mixin MarginVertical($value) {
+	margin-top: $value;
+	margin-bottom: $value;
+}
+
+@mixin MarginHorizontal($value) {
+	margin-left: $value;
+	margin-right: $value;
+}
+
+@mixin Padding($value) {
+	padding: $value;
+}
+
+@mixin PaddingVertical($value) {
+	padding-top: $value;
+	padding-bottom: $value;
+}
+
+@mixin PaddingHorizontal($value) {
+	padding-left: $value;
+	padding-right: $value;
+}
+
+
+@if $enable-Spaced {
+	// $SpacedValue is the value for thinner and $SpacedRatio is the amount of
+	// padding added everytime the screen size gets bigger
+	$ratioTemp: $SpacedRatio - $SpacedRatio;
+	@each $size in $ListSize {
+		.Spaced_#{$size} {
+			@include PaddingVertical(($SpacedValue + $ratioTemp));
+		}
+
+		.Spaced_#{$size}-noBottom {
+			@include PaddingVertical(($SpacedValue + $ratioTemp));
+			padding-bottom: 0!important;
+		}
+
+		.Spaced_#{$size}-noTop {
+			@include PaddingVertical(($SpacedValue + $ratioTemp));
+			padding-top: 0!important;
+		}
+		$ratioTemp: $ratioTemp + $SpacedRatio;
+	}
+
+	@if $enable-Spaced-responsive {
+		@each $breakpoint, $value in $breakpoints {
+			@if $value > 320 {
+				@include mediaq('>#{$breakpoint}') {
+					$ratioTemp: $SpacedRatio - $SpacedRatio;
+					@each $size in $ListSize {
+						.Spaced_#{$size}-#{$breakpoint} {
+							@include PaddingVertical(($SpacedValue + $ratioTemp));
+						}
+						// .Spaced_#{$size}-noBottom-#{$breakpoint} {
+						// 	@include PaddingVertical(($SpacedValue + $ratioTemp));
+						// 	padding-bottom: 0!important;
+						// }
+						// .Spaced_#{$size}-noTop-#{$breakpoint} {
+						// 	@include PaddingVertical(($SpacedValue + $ratioTemp));
+						// 	padding-top: 0!important;
+						// }
+						$ratioTemp: $ratioTemp + $SpacedRatio;
+					}
+				}
+			}
+		}
+	}
+}
+
+// ----------
+// Margin / Padding utility
+@if $enable-Margin {
+	$property: margin;
+	.NoMargin {
+		#{$property}: 0!important;
+	}
+
+	@if $enable-Margin-direction {
+		@each $direction in $ListDirection {
+			.NoMargin-#{$direction} {
+				#{$property}-#{$direction}: 0!important;
+			}
+
+			$ratioTemp: $MarginRatio - $MarginRatio;
+			@each $size in $ListSize {
+				.Margin-#{$direction}-#{$size} {
+					#{$property}-#{$direction}: ($MarginValue + $ratioTemp)!important;
+				}
+				$ratioTemp: $ratioTemp + $MarginRatio;
+			}
+		}
+	}
+}
+
+@if $enable-Padding {
+	$property: padding;
+	.NoPadding {
+		#{$property}: 0!important;
+	}
+
+	@if $enable-Padding-direction {
+		@each $direction in $ListDirection {
+			.NoPadding-#{$direction} {
+				#{$property}-#{$direction}: 0!important;
+			}
+			
+			$ratioTemp: $PaddingRatio - $PaddingRatio;
+			@each $size in $ListSize {
+				.Padding-#{$direction}-#{$size} {
+					#{$property}-#{$direction}: ($PaddingValue + $ratioTemp)!important;
+				}
+				$ratioTemp: $ratioTemp + $PaddingRatio;
+			}
+		}
+	}
+}
+
+@if $enable-Margin-responsive {
+	@each $breakpoint, $value in $breakpoints {
+		@if $value > 320 {
+			@include mediaq('>#{$breakpoint}') {
+				$property: margin;
+				.NoMargin-#{$breakpoint} {
+					#{$property}: 0!important;
+				}
+				// .NoMargin-vertical-#{$breakpoint} {
+				// 	#{$property}-right: 0!important;
+				// 	#{$property}-left: 0!important;
+				// }
+				// .NoMargin-horizontal-#{$breakpoint} {
+				// 	#{$property}-top: 0!important;
+				// 	#{$property}-bottom: 0!important;
+				// }
+
+				@if $enable-Margin-direction {
+					@each $direction in $ListDirection {
+						
+						.NoMargin-#{$direction}-#{$breakpoint} {
+							#{$property}-#{$direction}: 0!important; 
+						}
+						
+						$ratioTemp: $MarginRatio - $MarginRatio;
+						@each $size in $ListSize {
+							.Margin-#{$direction}-#{$size}-#{$breakpoint} {
+								#{$property}-#{$direction}: ($MarginValue + $ratioTemp)!important;
+								$ratioTemp: $ratioTemp + $MarginRatio;
+							}
+						}
+					}	
+				}
+			}
+		}
+	}
+}
+
+@if $enable-Padding-responsive {
+	@each $breakpoint, $value in $breakpoints {
+		@if $value > 320 {
+			@include mediaq('>#{$breakpoint}') {
+				$property: padding;
+				.NoPadding-#{$breakpoint} {
+					#{$property}: 0!important;
+				}
+				.NoPadding-vertical-#{$breakpoint} {
+					#{$property}-right: 0!important;
+					#{$property}-left: 0!important;
+				}
+				.NoPadding-horizontal-#{$breakpoint} {
+					#{$property}-top: 0!important;
+					#{$property}-bottom: 0!important;
+				}
+			}
+		}
+	}
+}

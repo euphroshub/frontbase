@@ -1,0 +1,93 @@
+@import '../mediaq/mediaq.scss';
+// ----------------------------------------
+// Position - absolute center center with translate(-50%, -50%)
+
+// The container needs a declared position in order for this to work
+@if $enable-Position {
+	.PositionCenter {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	@each $breakpoint, $value in $breakpoints {
+		@if $value > 320 {
+			.PositionCenter-#{$breakpoint} {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+		}
+	}
+}
+
+// ----------------------------------------
+// Position - top/left/right/bottom : 0
+@if $enable-Position {
+	@each $position in $ListDirection {
+		.Position-#{$position} {
+			#{$position}: 0;
+		}
+	}
+
+	@each $breakpoint, $value in $breakpoints {
+		@if $value > 320 {
+			@include mediaq('>#{$breakpoint}') {
+				@each $position in $ListDirection {
+					.Position-#{$position}-#{$breakpoint} {
+						#{$position}: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+// ----------------------------------------
+// Position - Fixed
+@if $enable-Position {
+	.PositionFixed {
+		position: fixed;
+	}
+
+	@each $breakpoint, $value in $breakpoints {
+		@if $value > 320 {
+			@include mediaq('>#{$breakpoint}') {
+				.PositionFixed-#{$breakpoint} {
+					position: fixed;
+				}
+			}
+		}
+	}
+}
+
+// ----------------------------------------
+// Position - Relative
+
+@if $enable-Position {
+	@each $breakpoint, $value, $condition in $ListBreakpoint {
+		// print no MQ
+		@if $breakpoint == null {
+			.PositionRelative {
+				position: relative;
+			}
+		}
+		// print MQ
+		@include media(#{$breakpoint}) {
+			@if $breakpoint != null {
+				.PositionRelative-#{$breakpoint} {
+					position: relative;
+				}
+			}
+		}
+	}
+}
+
+.PositionRelative {
+	position: relative;
+}
+
+
+
+

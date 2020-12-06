@@ -1,0 +1,136 @@
+[data-icon] {
+	&:not([data-icon="SVG"]) {
+		&:before {
+			font-family: 'Material Icons'!important;
+			content: attr(data-icon);
+			speak: none;
+			font-style: normal;
+			font-weight: normal;
+			font-variant: normal;
+			font-feature-settings: 'liga';
+			text-transform: none;
+			line-height: 1;
+			letter-spacing: normal;
+			word-wrap: normal;
+			white-space: nowrap;
+			direction: ltr;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+	}
+}
+
+[data-icon="SVG"] {
+	position: relative;
+	svg {
+		fill: $mainColor;
+	}
+}
+
+.Icon {
+	position:relative;
+ 	min-width:1em;
+	min-height:1em; 
+	&:before{
+		position:absolute; 
+		top:50%;
+		transform: translateY(-50%); 
+		color: currentColor; 
+	}
+	> svg {
+		position: absolute;
+		max-width: 1em;
+		max-height: 1em;
+		top:50%;
+		left: 0;
+		transform: translateY(-50%);
+		#bg {
+			path {
+				fill: $white;
+			}
+		}
+		#ic {
+			path {
+				fill: $mainColor;
+			}
+		}
+	}
+}
+
+// center
+.Icon-center {
+	@extend .Icon;
+	&:before{
+		left:50%;
+		transform: translate(-50%, -50%);
+	}
+	> svg {
+		left: auto;
+	}
+}
+
+// left
+.Icon-left {
+	@extend .Icon;
+	padding-left:1.6em;
+	&:before{
+		left:0; 
+	}
+}
+
+// right
+.Icon-right {
+	@extend .Icon;
+	padding-right:1.6em;
+	&:before{
+		right:0; 
+	}
+	> svg {
+		left: auto;
+		right: 0!important;
+	}
+}
+
+// Specificities regarding some elements 
+// that could badly react to the icon (spacing related)
+
+.FormElement{
+	hr {
+		position:absolute; 
+		bottom:0;
+		width:100%;
+		left:0;
+	}
+
+	&.Icon-left{
+		padding-left:1.6em;
+		&:before{
+			left:0; 
+		}
+	}
+	&.Icon-right{
+		padding-right:1.6em;
+		&:before{
+			right:0; 
+		}
+	}
+
+	&.FormElement-boxed{
+		&.Icon-left{ 
+			padding-left:1.6em;
+		}
+		&:before{
+			left:0.8em;
+		}
+
+		&.Icon-right{ 
+			padding-right:1.6em;
+			&:before{
+				left: auto!important;
+				right:0.8em; 
+			}
+		}
+	}
+}
+
+

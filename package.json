@@ -1,21 +1,16 @@
 {
   "name": "frontbase",
   "version": "1.0.0",
-  "description": "Front-End dev stack",
-  "main": "index.js",
+  "description": "frontbase",
+  "main": "js/euphros.js",
   "scripts": {
-    "compile": "node-sass sass/main.scss css/style.css -w"
+    "compile": "node-sass assets/stylesheets/prod/main.scss assets/stylesheets/compiled/main.css -w"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/euphroshub/frontbase.git"
   },
   "author": "euphros",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/euphroshub/frontbase/issues"
-  },
-  "homepage": "https://github.com/euphroshub/frontbase#readme",
   "devDependencies": {
     "node-sass": "^5.0.0"
   }

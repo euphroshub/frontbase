@@ -1,0 +1,45 @@
+@if $enable-TextAlign {
+	@each $align in $ListTextAlign {
+		.TextAlign-#{$align} {
+			text-align: $align;
+		}
+	}
+
+	@if $enable-TextAlign-responsive {
+		@each $breakpoint, $value in $breakpoints {
+			@if $value > 320 {
+				@include mediaq('>#{$breakpoint}') {
+					@each $align in $ListTextAlign {
+						.TextAlign-#{$align}-#{$breakpoint} {
+							text-align: $align;
+						}
+					}
+				}
+			}
+		}
+	}
+} // if enable-TextAlign END
+
+// ----------------------------------------
+// Font Weight
+@each $weight, $name in $ListFontWeight {
+	.FontWeight-#{$name} {
+		font-weight: #{$weight};
+	}
+}
+
+// ----------------------------------------
+// Font Style
+
+.TextItalic {
+	font-style: italic;
+}
+
+.TextNormal {
+	font-style: normal;
+}
+
+.BreakWord {
+	word-wrap: break-word
+}
+

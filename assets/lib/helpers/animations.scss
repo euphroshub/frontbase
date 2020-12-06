@@ -1,0 +1,257 @@
+/*
+* pour un projet avec vue-nuxt-base, changer les imports pour:
+*
+
+@import
+	"~assets/stylesheets/prod/_vars.scss",
+	"animations/properties",
+	// animations
+	"animations/fadeIn/fadeIn.scss";
+	
+*
+*/
+@import
+	"../../stylesheets/prod/vars",
+	"animations/properties",
+	// animations
+	"animations/fadein/fadein.scss";
+
+//	count        specifies the number of times an animation is played. Default 1
+//	duration     specifies how many seconds or milliseconds an animation takes to complete one cycle. Default 0
+//	delay        specifies delay before the animation starts. Default 0
+//	function     describes how the animation will progress over one cycle of its duration. Default "ease"
+//	fill-mode    specifies if the effects of an animation are before the animation starts and after it ends.
+//	visibility   determines whether or not a transformed element is visible when it is not facing the screen.
+
+$ListAnim : (
+	fadeIn,
+	fadeInUp,
+	fadeInDown,
+	fadeInLeft,
+	fadeInRight
+);
+
+$ListAnimSetting : (
+	// increment - iteration
+	1, 10
+);
+
+.ToAnim {
+	transition: none!important;
+	// fadeIn
+	&.fadeIn {
+		opacity: 0;
+		&.IsAnim {
+			@include fadeIn(1, 2s, .25s, $ease-in);
+		}
+	}
+	// fadeInDown
+	&.fadeInDown {
+		opacity: 0;
+		&.IsAnim {
+			@include fadeInDown(1, 2s, .25s, $ease-in);
+		}
+	}
+	// fadeInUp
+	&.fadeInUp {
+		opacity: 0;
+		&.IsAnim {
+			@include fadeInUp(1, 2s, .25s, $ease-in);
+		}
+	}
+	// fadeInLeft
+	&.fadeInLeft {
+		opacity: 0;
+		&.IsAnim {
+			@include fadeInLeft(1, 2s, .25s, $ease-in);
+		}
+	}
+	// fadeInRight
+	// ** This one causes the element to overflow on the right.
+	&.fadeInRight {
+		opacity: 0;
+		&.IsAnim {
+			@include fadeInRight(1, 2s, .25s, $ease-in);
+		}
+	}
+}
+
+
+
+// **---------------------------------------------------**
+// -------------------------------------------------------
+// FirstLoadAnimation BEGIN
+.js-firstLoad  {
+	.FirstLoadAnimation {
+		opacity: 1;
+	}
+}
+
+.FirstLoadAnimation {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: $mainColor;
+	z-index: 100;
+	opacity: 0;
+	pointer-events: none;
+	transition: all $ease-in .45s;
+
+	&_inner {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate3d(-50%, -50%, 0);
+		max-width: 350px;
+
+		svg {
+			max-width: 350px;
+
+			path {
+				//fill: $white;
+			}
+		}
+	}
+}
+// FirstLoadAnimation END
+// -------------------------------------------------------
+// **---------------------------------------------------**
+
+
+// **---------------------------------------------------**
+// -------------------------------------------------------
+// PageTransition BEGIN (with ajax site)
+@keyframes PageTransitionCurtain-end {
+	0% {
+		top: 0%;
+		bottom: 0%;
+	}
+
+	50% {
+		top: 0%;
+		bottom: 100%;
+	}
+
+	100% {
+		top: 0%;
+		bottom: 100%;
+	}
+}
+
+@keyframes PageTransitionCurtain-begin {
+	0% {
+		top: 100%;
+		bottom: 0%;
+	}
+
+	50% {
+		top: 0%;
+		bottom: 0%;
+	}
+
+	100% {
+		top: 0%;
+		bottom: 0%;
+	}
+}
+
+body {
+	&.js-firstLoad {
+		.PageTransition {
+			display: none;
+		}
+	}
+
+	&.page-show {
+		.PageTransition {
+			opacity: 0;
+		}
+
+	}
+
+	&.page-transition {
+		.PageTransition {
+			opacity: 1;
+		}
+	}
+}
+
+.PageTransition {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: $mainColor;
+	opacity: 0;
+	transition: all $ease-in .35s;
+	pointer-events: none;
+	z-index: 100;
+
+	&_inner {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate3d(-50%, -50%, 0);
+		max-width: 350px;
+
+		svg {
+			max-width: 350px;
+		}
+	}
+}
+// PageTransition END
+// -------------------------------------------------------
+// **---------------------------------------------------**
+
+
+// **---------------------------------------------------**
+// -------------------------------------------------------
+// m-ws BEGIN
+.m-ws {
+	.m-ws-item {
+		transition: all $ease-in .45s;
+
+		// translate
+		&.-translate-gentle {
+			transform: translate(0, 25px);
+		}
+
+		&-translate-height {
+			transform: translate(0, 100%);
+		}
+
+		// opacity
+		&.-opacity {
+			opacity: 0;
+		}
+
+		// delay
+		&.-delay-0 {
+			transition-delay: 0s!important;
+		}
+
+		@for $i from 1 through 10 {
+			&.-delay-#{$i} {
+				transition-delay: $i * 0.15s!important;
+			}
+		}
+	}
+
+	&.is-visible {
+		.m-ws-item {
+			&[class*="-translate"] {
+				transform: translate(0, 0);
+			}
+
+			&.-opacity {
+				opacity: 1;
+			}
+		}
+	}
+}
+// m-ws END
+// -------------------------------------------------------
+// **---------------------------------------------------**

@@ -1,0 +1,37 @@
+@import '../mediaq/mediaq.scss';
+
+// ----------------------------------------
+// Listing Inline
+@if $enable-ListingInline {
+	@each $align in $ListVerticalAlign {
+		.ListInline-#{$align} {
+			font-size: 0;
+			> [class*="col-"], > li, > .ListInline_item {
+				display: inline-block!important;
+				vertical-align: #{$align};
+				float: none!important;
+				font-size: 1rem;
+			}
+		}
+	}
+
+	@if $enable-ListingInline-responsive {
+		@each $breakpoint, $value in $breakpoints {
+			@if $value > 320 {
+				@include mediaq('>#{$breakpoint}') {
+					@each $align in $ListVerticalAlign {
+						.ListInline-#{$align}-#{$breakpoint} {
+							font-size: 0;
+							> [class*="col-"], > li, > .ListInline_item {
+								display: inline-block!important;
+								vertical-align: #{$align};
+								float: none!important;
+								font-size: 1rem;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+} // if enable-ListingInline END

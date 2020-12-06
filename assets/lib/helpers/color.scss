@@ -1,0 +1,13 @@
+// Block
+@each $name, $value in $ListColors {
+	.BlockColor-#{$name} {
+		background: $value;
+	}
+}
+
+// Text
+@each $name, $value, $code in $ListColors {
+	.TextColor-#{$name} {
+		color: $value;
+	}
+}

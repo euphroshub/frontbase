@@ -1,0 +1,85 @@
+// Screen resolution variables
+$scr-xxs: 320px;
+$scr-xs: 480px;
+$scr-sm: 768px;
+$scr-md: 991px;
+$scr-lg: 1200px;
+$scr-xlg: 1450px;
+$scr-xxlg: 1650px;
+
+// Media Queries
+$scr-xxs-max: ($scr-xs - 1);
+$scr-xs-max: ($scr-sm - 1);
+$scr-sm-max: ($scr-md - 1);
+$scr-md-max: ($scr-lg - 1);
+$scr-lg-max: ($scr-xlg - 1);
+$scr-xlg-max: ($scr-xxlg - 1);
+
+$mq-xxs: "(min-width:#{$scr-xxs}) and (max-width:#{$scr-xxs-max})";
+$mq-xs: "(min-width:#{$scr-xs}) and (max-width:#{$scr-xs-max})";
+$mq-sm: "(min-width:#{$scr-sm}) and (max-width:#{$scr-sm-max})";
+$mq-md: "(min-width:#{$scr-md}) and (max-width:#{$scr-md-max})";
+$mq-lg: "(min-width:#{$scr-lg}) and (max-width:#{$scr-lg-max})";
+$mq-xlg: "(min-width:#{$scr-xlg})";
+
+$mq-notdesk: "(max-width:#{$scr-sm-max})";
+$mq-mob: "(max-width:#{$scr-xs-max})" ;
+$mq-desk: "(min-width:#{$scr-md})";
+// End Media
+
+
+// Colors variables
+$black: #000000;
+$white: #ffffff;
+$purplelight: #ACB2DF;
+$purple: #7F7EBA;
+$blue: #1C2642;
+$paleblue: #636DC2;
+$lightblue: #BBCEDF;
+$grey: gray;
+$grayDarker: lighten($black, 5%);
+$grayDark: lighten($black, 33%);
+$gray: lighten($black, 50%);
+$grayLight: lighten($black, 75%);
+$grayLighter: lighten($black, 95%);
+
+// Set your primary colors here
+$mainColor: $blue;
+$primaryColor: $lightblue;
+$activeColor: $paleblue;
+
+// Lighten or darken the main color of the project
+$mainColor-light: lighten($mainColor, 8%);
+$mainColor-dark: darken($mainColor, 8%);
+
+// Set your secondary color here
+$secondaryColor: $paleblue; 
+$secondaryColor-light: lighten($secondaryColor, 8%); 
+$secondaryColor-dark: darken($secondaryColor, 8%);
+
+
+// Font variables -- Set your font here
+$mainF: 'Poppins', Arial, Helvetica, sans-serif;
+$mainFont: $mainF;
+
+$fontbase: 16;
+$default-font-size: 1.6rem;
+
+// Font Weights:
+$fw-thin: 100;
+$fw-light: 300; 
+$fw-normal: 400; 
+$fw-medium: 500;
+$fw-bold: 700;
+$fw-ultrabold: 900;
+
+
+// Transitions
+$stand-curve: cubic-bezier(0.4, 0.0, 0.2, 1);
+$decel-curve: cubic-bezier(0.0, 0.0, 0.2, 1);
+$accel-curve: cubic-bezier(0.4, 0.0, 1, 1);
+$sharp-curve: cubic-bezier(0.4, 0.0, 0.6, 1);
+$ease-in: cubic-bezier(0.430, 0.045, 0.100, 0.950);
+
+
+// END VARIABLES-------------------------------------------------------------------------

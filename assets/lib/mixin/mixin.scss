@@ -1,0 +1,124 @@
+// -------------------------
+// MEDIA QUERIES YAY :D
+//
+// The mixin loops through the array $Listbreakpoint and gets the required infos for each breakpoint
+// and print the correct name, value and condition for each array inside $ListBreakpoint.
+@mixin media($breakpoint) {
+	@each $break, $value, $condition in $ListBreakpoint {
+		@if $breakpoint == "#{$break}" {
+			@if $condition != null {
+				@media screen and (#{$condition}: #{$value}) {
+					@content;
+				}
+			}
+		}
+	}
+}
+
+// PX to REM
+@mixin rem($px){
+	// rem = $px / 16
+	$rem : $px / $fontbase;
+	font-size: #{$rem}rem;
+}
+
+// Style input's placeholder
+@mixin Placeholder($fontSize, $lineHeight, $color) {
+	::-webkit-input-placeholder {
+		font-size: $fontSize;
+		line-height: $lineHeight;
+		color: $color;
+	}
+	:-moz-placeholder {
+		font-size: $fontSize;
+		line-height: $lineHeight;
+		color: $color;
+	}
+	::-moz-placeholder {
+		font-size: $fontSize;
+		line-height: $lineHeight;
+		color: $color;
+	}
+	:-ms-input-placeholder {
+		font-size: $fontSize;
+		line-height: $lineHeight;
+		color: $color;
+	}
+	::-ms-input-placeholder {
+		font-size: $fontSize;
+		line-height: $lineHeight;
+		color: $color;
+	}
+	:placeholder-shown {
+		font-size: $fontSize;
+		line-height: $lineHeight;
+		color: $color;
+	}
+}
+
+
+// ----------------------------------------
+// ----------------------------------------
+// Grid BEGIN
+@mixin make-container() {
+	width: 100%;
+	padding-left: $grid-gutter-width;
+	padding-right: $grid-gutter-width;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+@mixin make-container-mq($bp) {
+	@include make-container();
+	$offset : $grid-gutter-width / 2;
+
+	@each $breakpoint, $value in $breakpoints {
+		@if $breakpoint == $bp {
+			@include mediaq('>#{$value}') {
+				max-width: $value - $offset;
+			}
+		}
+	}
+}
+
+@mixin make-container-half-mq($bp) {
+	@include make-container();
+	$offset : $grid-gutter-width / 2;
+
+	@each $breakpoint, $value in $breakpoints {
+		@if $breakpoint == $bp {
+			@include mediaq('>#{$value}') {
+				max-width: ($value / 2) - $offset;
+			}
+		}
+	}
+}
+
+@mixin make-row() {
+	display: flex;
+	flex-wrap: wrap;
+	margin-right: -$grid-gutter-width;
+	margin-left: -$grid-gutter-width
+}
+
+@mixin make-col-ready() {
+	position: relative;
+	// Prevent columns from becoming too narrow when at smaller grid tiers by
+	// always setting `width: 100%;`. This works because we use `flex` values
+	// later on to override this initial width.
+	width: 100%;
+	min-height: 1px; // Prevent collapsing
+	padding-right: ($grid-gutter-width);
+	padding-left: ($grid-gutter-width);
+}
+
+@mixin make-col($size, $columns: $grid-columns) {
+	flex: 0 0 percentage($size / $columns);
+	// Add a `max-width` to ensure content within each column does not blow out
+	// the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+	// do not appear to require this.
+	max-width: percentage($size / $columns);
+}
+// Grid BEGIN
+// ----------------------------------------
+// ----------------------------------------
