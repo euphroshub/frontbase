@@ -21,6 +21,7 @@
 
 #### That's it for the stack v0.2 for now and here is a list of the improvment i plan on adding in a near future (hopefully).
 
+- a Gulpfile to compile JS and SCSS instead of the script in use right now.
 - Pre-built JavaScript features.
 - Pre-built sass/css animations.
 - More variables and pre-defined class to make coding more efficient.
